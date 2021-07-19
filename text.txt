@@ -1,0 +1,7 @@
+// LEXIQUE DES DIFFERENTES PERMISSION (app/AuthServiceProvider)
+
+permission-users : Auteur - Admin;
+
+managers-users : tous les roles sauf les utilisateurs et les premiums
+
+edit-users | delete-users : juste pour l'admin
