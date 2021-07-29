@@ -16,6 +16,10 @@
   <link rel="stylesheet" href="{{asset('admin/vendor/nucleo/css/nucleo.css')}}" type="text/css">
   <link rel="stylesheet" href="{{asset('admin/vendor/@fortawesome/fontawesome-free/css/all.min.css')}}" type="text/css">
   <link rel="stylesheet" href=" https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" type="text/css">
+  <link rel="stylesheet" type="text/css" href="{{ asset('DataTables/media/css/jquery.dataTables.min.css')}}">
+  <script type="text/javascript" src="{{ asset('DataTables/media/js/jquery.js')}}"></script>
+  <script type="text/javascript" src="{{ asset('DataTables/media/js/jquery.dataTables.min.js')}}" defer></script>
+  <script type="text/javascript" src="{{ asset('DataTables/table.js')}}"></script>
  
   <!-- Argon CSS -->
   <link rel="stylesheet" href="{{asset('admin/css/argon.css?v=1.2.0')}}" type="text/css">
@@ -40,11 +44,26 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" href="#">
+              <a class="nav-link active" href="{{ route('dashboard') }}">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">Dashboard</span>
               </a>
             </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" id="liste" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="ni ni-books text-primary"></i>
+                <span class="nav-link-text">Librairie</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="liste">
+                <a class="dropdown-item" href="{{ route('epreuve') }}"><span class="nav-link-text"><i class="ni ni-fat-add"></i> Epreuves</span></a>
+                <a class="dropdown-item" href="{{ route('ets') }}"><span class="nav-link-text"><i class="ni ni-fat-add"></i> Etablissements</span></a>
+                <a class="dropdown-item" href="{{ route('filiere') }}"><span class="nav-link-text"><i class="ni ni-fat-add"></i> Filières</span></a>
+                <a class="dropdown-item" href="#"><span class="nav-link-text"><i class="ni ni-fat-add"></i> Logiciels</span></a>
+                <a class="dropdown-item" href="{{ route('rapport') }}"><span class="nav-link-text"><i class="ni ni-fat-add"></i> Rapports de Stage</span></a>
+              </div>
+            </li>
+
             @can('permission-users')
             <li class="nav-item">
               <a class="nav-link" href="{{ route('categoriePost.index') }}">

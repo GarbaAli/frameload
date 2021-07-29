@@ -58,6 +58,7 @@ Route::patch('/forum/{souscategorie}/{topic}/update', 'TopicsController@update')
 
 //Administration
 
+Route::get('dashboard','Admin\HomeController@index')->name('dashboard');
 //User
 Route::resource('/admin/users', 'Admin\UsersController')->middleware('can:manager-users');
 //Categorie
@@ -77,5 +78,53 @@ Route::get('/admin/souscatForum/{categorie}', 'Admin\SouscatForumController@crea
 Route::get('/admin/souscatForum/delete/{categorie}', 'Admin\SouscatForumController@index')->name('souscat.index');
 Route::post('/admin/souscatForum/{categorie}', 'Admin\SouscatForumController@store')->name('souscat.store');
 Route::delete('/admin/souscatForum/{categorie}/{souscategorie}', 'Admin\SouscatForumController@destroy')->name('souscat.destroy');
+
+
+// Adminstration Julie
+
+// // Librairie
+// Etablissement
+Route::get('etablissement','EtablissementController@index')->name('ets');
+Route::get('etablissement/create','EtablissementController@create')->name('ets.create');
+Route::post('etablissement','EtablissementController@store')->name('ets.store');
+Route::get('etablissement/{ets_id}/edit','EtablissementController@edit')->name('ets.edit');
+Route::patch('etablissement/{ets_id}','EtablissementController@update')->name('ets.update');
+Route::delete('etablissement/{ets_id}','EtablissementController@destroy')->name('ets.destroy');
+
+// //Filiere
+Route::get('filiere','FiliereController@index')->name('filiere');
+Route::get('filiere/create','FiliereController@create')->name('filiere.create');
+Route::post('filiere','FiliereController@store')->name('filiere.store');
+Route::get('filiere/{fil_id}/edit','FiliereController@edit')->name('filiere.edit');
+Route::patch('filiere/{fil_id}','FiliereController@update')->name('filiere.update');
+Route::delete('filiere/{fil_id}','FiliereController@destroy')->name('filiere.destroy');
+
+// // Cycle
+Route::get('cycle','CycleController@index')->name('cycle');
+Route::get('cycle/create','CycleController@create')->name('cycle.create');
+Route::post('cycle','CycleController@store')->name('cycle.store');
+Route::get('cycle/{cycle_id}/edit','CycleController@edit')->name('cycle.edit');
+Route::patch('cycle/{cycle_id}','CycleController@update')->name('cycle.update');
+Route::delete('cycle/{cycle_id}','CycleController@destroy')->name('cycle.destroy');
+
+// // Epreuve
+Route::get('epreuve','EpreuveController@index')->name('epreuve');
+
+Route::get('epreuve/create','EpreuveController@create')->name('epreuve.create');
+Route::post('epreuve','EpreuveController@store')->name('epreuve.store');
+Route::get('epreuve/{epr_id}/vue','EpreuveController@vue_Epreuve')->name('epreuve.vue');
+Route::get('epreuve/{epr_id}/edit','EpreuveController@edit')->name('epreuve.edit');
+Route::patch('epreuve/{epr_id}','EpreuveController@update')->name('epreuve.update');
+Route::delete('epreuve/{epr_id}','EpreuveController@destroy')->name('epreuve.destroy');
+
+// // Rapport
+Route::get('rapport','RapportController@index')->name('rapport');
+Route::get('rapport/create','RapportController@create')->name('rapport.create');
+Route::post('rapport','RapportController@store')->name('rapport.store');
+Route::get('rapport/{rap_id}/vue','RapportController@vue_Rapport')->name('rapport.vue');
+Route::get('rapport/{rap_id}/edit','RapportController@edit')->name('rapport.edit');
+Route::patch('rapport/{rap_id}','RapportController@update')->name('rapport.update');
+Route::delete('rapport/{rap_id}','RapportController@destroy')->name('rapport.destroy');
+
 
 // Fin Administration
