@@ -1,6 +1,6 @@
 
 @extends('layouts.menu_login')
-
+@section('title', 'Login')
 @section('body_login')
 
     <div class="container mt--8 pb-5">
@@ -73,12 +73,13 @@
               
             </div>
           </div>
-          <div class="row mt-3">
+
+          <div class="row mt-5 bg-secondary container ml-1 " style="border-radius: 5px">
             <div class="col-6">
-              <a href="{{ route('password.request') }}" class="text-light"><small>Mot de pass Oublié ?</small></a>
+              <a href="{{ route('password.request') }}" class="text-black"><small>Mot de pass Oublié ?</small></a>
             </div>
             <div class="col-6 text-right">
-              <a href="{{ route('register') }}" class="text-light"><small>Creer un compte</small></a>
+              <a href="{{ route('register') }}" class="text-black"><small>Creer un compte</small></a>
             </div>
           </div>
         </div>

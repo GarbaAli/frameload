@@ -1,15 +1,19 @@
 @extends('layouts.menu_footer')
 
+@section('model_css')
+<link rel="stylesheet" href="{{ asset('master/index/css/modal.css') }}">
+@endsection
+
 @section('content')
     
-<div class="hero-wrap js-fullheight" style="background-image: url('index/images/bg_1.jpg');">
+<div class="hero-wrap js-fullheight" style="background-image: url('{{ asset('images/frameload/1.jpg') }}');">
     <div class="overlay"></div>
     <div class="container">
       <div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
         <div class="col-md-7 ftco-animate">
           <span class="subheading">Bienvenue a Frameload</span>
           <h1 class="mb-4"><strong style="color: #000">FRAMELOAD</strong>, <span style="color: #4986fc">Notre Compagnon academique</span></h1>
-          <p class="mb-0"><a href="#" class="btn btn-primary">Notre Contenue</a> <a href="#" class="btn btn-white">Apprendre plus</a></p>
+          <p class="mb-0"><a href="#" class="btn btn-primary">Notre Contenue</a> <a href="#" class="btn btn-white">Nos formations</a></p>
       </div>
   </div>
   </div>
@@ -549,4 +553,34 @@
   </div>
   </div>
   </section>
+@endsection
+
+@section('modal')
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="fa fa-close"></span>
+          </button>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-md-8 d-flex">
+                <div class="modal-body p-5 img d-flex" style="background-image: url('{{ asset('master/index/images/formation.jpg') }}');">
+                </div>
+              </div>
+              <div class="col-md-4 d-flex">
+                <div class="modal-body p-5 d-flex align-items-center">
+                    <div class="text w-100 text-center py-5">
+                        <h2 class="mb-0">50<span>%</span> Off</h2>
+                        <h4 class="mb-4">On all Colorlib Brands</h4>
+                   
+                        <a href="#" class="btn btn-info d-block py-3">Interresser</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
 @endsection

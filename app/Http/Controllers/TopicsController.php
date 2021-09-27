@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Topics;
 use App\SouscatForum;
+use App\CategorieForum;
 use Illuminate\Http\Request;
 
 class TopicsController extends Controller 
@@ -61,7 +62,9 @@ class TopicsController extends Controller
      */
     public function show(SouscatForum $souscategorie, Topics $topic)
     {
-        return view('topics.show', compact(['souscategorie', 'topic']));
+        $categories = CategorieForum::all()->sortByDesc('libelle');
+        $topics = Topics::latest()->limit(10)->get();
+        return view('topics.show', compact(['souscategorie', 'topic', 'categories', 'topics']));
     }
 
     /**

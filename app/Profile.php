@@ -20,4 +20,11 @@ class Profile extends Model
 
         return "/storage/avatars/". $image_name;
     }
+
+    public function getCouverture()
+    {
+        $couverture_name = $this->couverture ?? 'couverture.jpg';
+
+        return "/storage/couverture/". $couverture_name;
+    }
 }

@@ -38,8 +38,8 @@
                 <h3 class="text-white mb-0">Liste des Utilisateurs</h3>
               </div>
               <div class="table-responsive">
-                <table class="table align-items-center table-dark table-flush">
-                  <thead class="thead-dark">
+                <table id="dataTable" class="table align-items-center table-light table-flush">
+                  <thead class="thead-light">
                     <tr>
                       <th scope="col" class="sort" data-sort="name">User</th>
                       <th scope="col" class="sort" data-sort="budget">Email</th>
@@ -55,8 +55,8 @@
                     <tr>
                         <th scope="row">
                           <div class="media align-items-center">
-                            <a href="#" class="avatar rounded-circle mr-3">
-                              <img alt="Image placeholder" src="{{asset('admin/img/theme/bootstrap.jpg')}}">
+                            <a href="{{ route('profiles.show', $user->name) }}" class="avatar rounded-circle mr-3">
+                              <img alt="avatar" src="{{ $user->profile->getImage() }}">
                             </a>
                             <div class="media-body">
                               <span class="name mb-0 text-sm"> {{ $user->name }} </span>

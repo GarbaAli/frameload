@@ -65,7 +65,8 @@ class CommentForumController extends Controller
                 <div class="meta">'.$rep->created_at.'</div>
                 <p>'.$rep->content.'</p>
                 </div>
-               </li>';
+               </li> 
+               ';
             }
 
             $img = !($item->image)?'avatar.png': $item->image;
@@ -77,7 +78,12 @@ class CommentForumController extends Controller
             <div class="comment-body">
             <h3>'.$item->name.'</h3>
             <div class="meta">'.$item->created_at.'</div>
-            <p>'.$item->content.'</p>
+            <div class="d-flex justify-content-between">
+                <p>'.$item->content.'</p>
+                <button id="" class="btn btn-success btn-sm element">Solution</button>
+            </div>
+            
+
             <ul class="list">
                 '.$outputReply.'
             </ul>

@@ -20,6 +20,7 @@
 
     <link rel="stylesheet" href="{{ asset('master/index/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('master/index/css/style.css') }}">
+    @yield('model_css')
     <!-- Input personaliser -->
 @yield('css_trixEditor') 
 @yield('script_trixEditor')
@@ -39,7 +40,7 @@
    <div class="collapse navbar-collapse" id="ftco-nav">
        <ul class="navbar-nav ml-auto">
          <li class="nav-item active"><a href="{{ url('/') }}" class="nav-link"><strong>Accueil</strong></a></li>
-         <li class="nav-item"><a href="about.html" class="nav-link"><strong>A propos</strong></a></li>
+         <li class="nav-item"><a href="{{ route('staticPage.nous') }}" class="nav-link"><strong>A propos</strong></a></li>
          <li class="nav-item"><a href="courses.html" class="nav-link">Librairie</a></li>
          <li class="nav-item"><a href="{{ route('blog') }}" class="nav-link">Blog</a></li>
          <li class="nav-item"><a href="{{ route('forum') }}" class="nav-link">Forum</a></li>
@@ -126,10 +127,10 @@
   </div>
   <div class="col-md pt-5">
      <div class="ftco-footer-widget pt-md-5 mb-4">
-        <h2 class="ftco-heading-2">Recent Courses</h2>
+        <h2 class="ftco-heading-2">Frameload</h2>
         <ul class="list-unstyled">
-          <li><a href="#" class="py-2 d-block">Computer Engineering</a></li>
-          <li><a href="#" class="py-2 d-block">Web Design</a></li>
+          <li><a href="{{ route('staticPage.vente') }}" class="py-2 d-block">Condition de vente</a></li>
+          <li><a href="{{ route('staticPage.contact') }}" class="py-2 d-block">Contact-Nous</a></li>
           <li><a href="#" class="py-2 d-block">Business Studies</a></li>
           <li><a href="#" class="py-2 d-block">Civil Engineering</a></li>
           <li><a href="#" class="py-2 d-block">Computer Technician</a></li>
@@ -161,8 +162,9 @@
   </footer>
   
   <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="148px" height="148px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#000"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="5" stroke-miterlimit="10" stroke="#43a2da"/></svg></div>
   
+  @yield('modal')
  
   
   {{-- <link rel="stylesheet" href="{{ asset('master/index/css/style.css') }}"> --}}
@@ -173,6 +175,24 @@
 
 {{-- <script src="{{ asset('js/blog.js') }}"></script> --}}
 <script src="{{ asset('js/forum.js') }}"></script>
+
+@if(session()->has('message'))
+<script type="text/javascript">
+
+    $(window).on('load',function(){
+        $('#exampleModalCenter').modal('show');
+        var fullHeight = function() {
+
+        $('.js-fullheight').css('height', $(window).height());
+        $(window).resize(function(){
+          $('.js-fullheight').css('height', $(window).height());
+        });
+
+        };
+        fullHeight();
+    });
+  </script>
+  @endif
 
 {{-- <script src="{{ asset('master/index/js/jquery.min.js') }}"></script> --}}
 <script src="{{ asset('master/index/js/jquery-migrate-3.0.1.min.js') }}"></script>

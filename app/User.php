@@ -2,9 +2,11 @@
 
 namespace App;
 
+use App\Mail\welcomeUserMail;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -43,18 +45,20 @@ class User extends Authenticatable
 
         //  creer un profil lors de la creation dun user
         static::created(function ($user){
-            $user->profile()->create([
+             $data = $user->profile()->create([
                 'nom_prenom' =>'profil de '.$user->name,
                 'tel' => '000',
                 'niveau' => 'Niveau etude',
                 'filiere' => 'Filiere',
                 'etablissement' => 'Etablissement'
-            ]);
+            ]); 
 
             $utilisateurRole = Role::where('name', 'utilisateur')->first(); //recupere id role qui a pour name utilisateur.
 
             $user->roles()->attach($utilisateurRole); 
 
+            //Envoie de mail
+            Mail::to($data->user->email)->send(new welcomeUserMail($data)); 
         });
     }
 

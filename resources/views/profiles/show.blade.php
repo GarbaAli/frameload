@@ -24,9 +24,9 @@
  
   <div class="main-content" id="panel">
    
-    <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url({{asset('admin/img/theme/profile-cover.jpg')}}); background-size: cover; background-position: center top;">
+    <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url({{($user->profile->getCouverture() )}}); background-size: cover; background-position: center top;">
       <!-- Mask -->
-      <span class="mask bg-gradient-default opacity-8"></span>
+      <span class="mask bg-gradient-primary opacity-5"></span>
       <!-- Header container -->
       <div class="container-fluid d-flex align-items-center">
         <div class="row">
@@ -35,7 +35,10 @@
             <p class="text-white mt-0 mb-5">{{$user->profile->bio}}</p>
 
             @can('update', $user->profile)
-            <a href=" {{route('profiles.edit', $user->name) }} " class="btn btn-neutral">Editer mes informations</a>
+            <div class="d-flex">
+              <a href=" {{route('profiles.edit', $user->name) }} " class="btn btn-neutral">Editer mes informations</a>
+              {{-- <a href="#" class="btn btn-outline-neutral btn-sm"> <i class="ni ni-user"></i> Changer ma Couverture</a> --}}
+            </div>
             @endcan
           </div>
         </div>
@@ -46,7 +49,7 @@
       <div class="row">
         <div class="col-xl-4 order-xl-2">
           <div class="card card-profile">
-            <img src="{{asset('admin/img/theme/img-1-1000x600.jpg')}}" alt="Image placeholder" class="card-img-top">
+            <img src="{{asset('master/index/images/2.jpg')}}" alt="Image placeholder" class="card-img-top">
             <div class="row justify-content-center">
               <div class="col-lg-3 order-lg-2">
                 <div class="card-profile-image">
@@ -75,20 +78,6 @@
             <div class="card-body pt-0">
               <div class="row">
                 <div class="col">
-                  <div class="card-profile-stats d-flex justify-content-center">
-                    <div>
-                      <span class="heading">22</span>
-                      <span class="description">Friends</span>
-                    </div>
-                    <div>
-                      <span class="heading">10</span>
-                      <span class="description">Photos</span>
-                    </div>
-                    <div>
-                      <span class="heading">89</span>
-                      <span class="description">Comments</span>
-                    </div>
-                  </div>
                 </div>
               </div>
               <div class="text-center">
@@ -109,6 +98,7 @@
             </div>
           </div>
         </div>
+        
         @can('update', $user->profile)
 <!-- Tableau de bord -->
         <div class="col-xl-8 order-xl-1">

@@ -5,8 +5,20 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
+    $var = mt_rand(1,10);
+    if($var % 2 != 0){
+        session()->flash('message', 'popup');
+    }
     $posts = App\Post::latest()->paginate(3); // les 3 derniers posts
     return view('index', compact(['posts']));
+});
+
+// Routes pour vider les caches et autres
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    Artisan::call('route:clear');
+    Artisan::call('config:clear');
+    return "Cache is cleared";
 });
  
 Auth::routes();
@@ -17,6 +29,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profiles/{user}', 'ProfileController@show')->name('profiles.show');
 Route::get('/profiles/{user}/edit', 'ProfileController@edit')->name('profiles.edit');
 Route::patch('/profiles/{user}', 'ProfileController@update')->name('profiles.update');
+Route::patch('/profiles/couverture/{user}', 'ProfileController@couverture')->name('profiles.couverture');
 
 // Google account
 Route::get("/auth/redirect/{provider}", "SocialiteController@redirect");
@@ -54,6 +67,13 @@ Route::post('/forum/store', 'TopicsController@store')->name('topics.store');
 Route::delete('/forum/{souscategorie}/{topic}/destroy', 'TopicsController@destroy')->name('topics.destroy');
 Route::get('/forum/{souscategorie}/{topic}/edit', 'TopicsController@edit')->name('topics.edit');
 Route::patch('/forum/{souscategorie}/{topic}/update', 'TopicsController@update')->name('topics.update');
+
+//Static Pages
+Route::get('/nous', 'staticController@propos')->name('staticPage.nous');
+Route::get('/conditionVente', 'staticController@vente')->name('staticPage.vente');
+Route::get('/mention_legale', 'staticController@mention_legale')->name('staticPage.mention_legale');
+Route::get('/condition', 'staticController@condition')->name('staticPage.condition');
+Route::get('/contact', 'staticController@contact')->name('staticPage.contact');
 
 
 //Administration

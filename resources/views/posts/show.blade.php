@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Home -->
-<section class="hero-wrap hero-wrap-2" style="background-image: url('index/images/bg_2.jpg');">
+<section class="hero-wrap hero-wrap-2" style="background-image: url('{{ $post->getImage() }}');">
     <div class="overlay"></div>
     <div class="container">
       <div class="row no-gutters slider-text align-items-end justify-content-center">

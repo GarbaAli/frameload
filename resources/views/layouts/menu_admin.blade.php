@@ -337,20 +337,20 @@
     <!--Modal: modalPush-->
 <div class="modal fade" id="modalPush" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 aria-hidden="true">
-<div class="modal-dialog modal-notify" role="document">
-  <!--Content-->
-  <div class="modal-content text-center modal-info">
-    <!--Body-->
-    <div class="modal-body">
+  <div class="modal-dialog modal-notify" role="document">
+    <!--Content-->
+    <div class="modal-content text-center modal-info">
+      <!--Body-->
+      <div class="modal-body">
 
-      <i class="fas fa-check fa-4x animated rotateIn mb-4"></i>
+        <i class="fas fa-check fa-4x animated rotateIn mb-4"></i>
 
-      <p>{{ session()->get('message') }}</p>
+        <p>{{ session()->get('message') }}</p>
 
+      </div>
     </div>
+    <!--/.Content-->
   </div>
-  <!--/.Content-->
-</div>
 </div>
 <!--Modal: modalPush-->
 
@@ -377,7 +377,6 @@ aria-hidden="true">
         $('#modalPush').modal('toggle')
     // });
     </script>
-
   @endif
  <script>
   //initialisation de l'editeur

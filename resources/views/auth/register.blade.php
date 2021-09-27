@@ -3,7 +3,7 @@
 @section('body_login')
     <div class="container mt--8 pb-5">
       <!-- Table -->
-      <div class="row justify-content-center">
+      <div class="row justify-content-between">
         <div class="col-lg-6 col-md-8">
           <div class="card bg-secondary border-0">
             <div class="card-header bg-transparent pb-5">
