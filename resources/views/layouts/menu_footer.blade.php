@@ -41,11 +41,11 @@
        <ul class="navbar-nav ml-auto">
          <li class="nav-item active"><a href="{{ url('/') }}" class="nav-link"><strong>Accueil</strong></a></li>
          <li class="nav-item"><a href="{{ route('staticPage.nous') }}" class="nav-link"><strong>A propos</strong></a></li>
-         <li class="nav-item"><a href="courses.html" class="nav-link">Librairie</a></li>
-         <li class="nav-item"><a href="{{ route('blog') }}" class="nav-link">Blog</a></li>
-         <li class="nav-item"><a href="{{ route('forum') }}" class="nav-link">Forum</a></li>
+         <li class="nav-item"><a href="courses.html" class="nav-link"><strong>Librairie</strong></a></li>
+         <li class="nav-item"><a href="{{ route('blog') }}" class="nav-link"><strong>Blog</strong></a></li>
+         <li class="nav-item"><a href="{{ route('forum') }}" class="nav-link"><strong>Forum</strong></a></li>
          @guest
-         <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Sign In</a></li>
+         <li class="nav-item"><a href="{{ route('register') }}" class="nav-link"><span style="border: 1px solid #43a2da; padding:5px 20px 5px 20px; border-radius:10px">Sign In</span></a></li>
          @endguest 
          @auth
          <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
