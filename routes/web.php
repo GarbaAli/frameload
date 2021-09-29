@@ -128,3 +128,25 @@ Route::delete('rapport/{rap_id}','RapportController@destroy')->name('rapport.des
 
 
 // Fin Administration
+
+// Code de téléchargement
+Route::get('code','CodeController@index')->name('code');
+Route::post('code/generer','CodeController@generer')->name('code.generer');
+Route::get('code/print','CodeController@imprimer')->name('code.imprimer');
+
+
+Route::get('librairie','LibrairieController@index')->name('librairie');
+//librairie/Epreuve
+Route::get('librairie/epreuve','LibrairieController@show_epreuve')->name('show_epreuve');
+Route::get('librairie/epreuve/{epr_id}/view','LibrairieController@view_epreuve')->name('view_epreuve');
+Route::get('librairie/epreuve/{epr_id}/download','LibrairieController@epreuve_pdf')->name('epreuve_pdf');
+Route::get('librairie/epreuve/search','LibrairieController@recherche')->name('epreuve.search');
+Route::post('librairie/epreuve','LibrairieController@compteur')->name('epreuve.compteur');
+//librairie/Rapport
+Route::get('librairie/rapport','LibrairieController@show_rapport')->name('show_rapport');
+Route::get('librairie/rapport/{rap_id}/view','LibrairieController@view_rapport')->name('view_rapport');
+Route::get('librairie/rapport/{rap_id}/download','LibrairieController@rapport_pdf')->name('rapport_pdf');
+Route::get('librairie/rapport/create','LibrairieController@create')->name('rapport.create');
+Route::post('librairie/rapport','LibrairieController@store')->name('rapport.store');
+Route::get('librairie/rapport/{rap_id}/code','LibrairieController@Download_Code')->name('rapport.code');
+Route::get('librairie/rapport/search','LibrairieController@search')->name('rapport.search');
