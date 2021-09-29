@@ -24,7 +24,7 @@
 }
 </style>
 @endsection
-<section class="hero-wrap hero-wrap-2" style="background-image: url('index/images/bg_3.jpg');">
+<section class="hero-wrap hero-wrap-2" style="background-image: url('{{ asset('images/frameload/forum.jpg') }}');">
     <div class="overlay"></div>
     <div class="container">
       <div class="row no-gutters slider-text align-items-end justify-content-center">
@@ -37,7 +37,7 @@
   </section>
 
 <!-- Team -->
-<section id="team" class="pb-5 mt-20">
+<section style="background-image: url('{{ asset('images/team_background.jpg') }}');" id="team" class="pb-5 mt-20">
     <div class="container">
         <span class="subheading" style="color: rgb(15, 153, 233)">Liste des Categories</span>
         <div class="sidebar-box bg-white ftco-animate">

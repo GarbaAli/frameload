@@ -8626,7 +8626,7 @@ h1, h2, h3, h4, h5,
       background: -ms-linear-gradient(-45deg, #ce4be8 0%, #207ce5 100%);
       background: -webkit-linear-gradient(315deg, #ce4be8 0%, #207ce5 100%);
       background: -o-linear-gradient(315deg, #ce4be8 0%, #4986fc  100%);
-      background: linear-gradient(135deg, #ce4be8 0%, #207ce5 100%);
+      background: linear-gradient(88deg, #212529 0%, #0044cc 100%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ce4be8', endColorstr='#207ce5', GradientType=1 ); }
     .hero-wrap.hero-wrap-2 .slider-text {
       height: 600px; }

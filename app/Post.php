@@ -47,7 +47,7 @@ class Post extends Model
    $moisli{5} = "mai";
    $moisli{6} = "juin";
    $moisli{7} = "juillet";
-   $moisli{8} = "août";
+   $moisli{8} = "août"; 
    $moisli{9} = "septembre";
    $moisli{10} = "octobre";
    $moisli{11} = "novembre";
@@ -57,5 +57,12 @@ class Post extends Model
    // Met en forme 
    $str = $jour.' '.$mois.' '.$annee;
    return $str;
+   }
+
+   public function getImage()
+   {
+       $image_name = $this->image;
+
+       return "/storage/posts/". $image_name;
    }
 }

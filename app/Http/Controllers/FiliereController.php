@@ -10,7 +10,7 @@ class FiliereController extends Controller
 {
     
         public function index(){
-            $filiere = Filiere::all();
+            $filiere = Filiere::all(); 
             $cycle = Cycle::all();
             return view('admin.librairie.filieres.index', compact('filiere','cycle'));
         }

@@ -17,7 +17,7 @@
 </style>
 
 @endsection
-
+  
 <section class="hero-wrap hero-wrap-2" style="background-image: url('{{ $souscategorie->getImage() }}');">
     <div class="overlay"></div>
     <div class="container">

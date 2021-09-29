@@ -4,7 +4,7 @@
 
 
 
-<section class="hero-wrap hero-wrap-2" style="background-image: url('index/images/bg_4.jpg');">
+<section class="hero-wrap hero-wrap-2" style="background-image: url('{{ asset('images/frameload/blog.jpg') }}');">
     <div class="overlay"></div>
     <div class="container">
       <div class="row no-gutters slider-text align-items-end justify-content-center">
@@ -27,7 +27,7 @@
 			<div class="col-lg-9">
 				<div class="row">
 				@forelse ($posts as $post )
-					<div class="col-md-6 d-flex align-items-stretch ftco-animate">
+					<div class="col-md-6 col-xs-3 d-flex align-items-stretch ftco-animate">
 						<div class="project-wrap">
 							<a href="{{ route('blog.show', $post->title) }}" class="img" style="background-image: url('storage/posts/{{ $post->image }}');">
 								<span class="price">{{ $post->categorie->libelle }}</span>

@@ -23,9 +23,9 @@
  
   <div class="main-content" id="panel">
    
-    <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url({{asset('admin/img/theme/profile-cover.jpg')}}); background-size: cover; background-position: center top;">
+    <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url({{asset($user->profile->getImage())}}); background-size: cover; background-position: center top;">
       <!-- Mask -->
-      <span class="mask bg-gradient-default opacity-8"></span>
+      <span class="mask bg-gradient-default opacity-5"></span>
       <!-- Header container -->
       <div class="container-fluid d-flex align-items-center">
         <div class="row">
@@ -63,8 +63,8 @@
                 <div class="row">
                 <div class="col-lg-12">
                       <div class="form-group">
-                        <label class="form-control-label @error('name') is-invalid @enderror" for="username">Nom d'utilisateur</label>
-                        <input type="text" name="name" id="username" class="form-control" placeholder="Username" value="{{ old('name') ?? $user->name }} " autocomplete="name" autofocus>
+                        <label class="form-control-label for="username">Nom d'utilisateur</label>
+                        <input type="text" name="name"   id="username" class="form-control @error('name') is-invalid @enderror"" placeholder="Username" value="{{ old('name') ?? $user->name }} " autocomplete="name" autofocus>
                         @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -199,6 +199,7 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
+                            <label for="bio" class="form-control-label">Photo de profil</label>
                             <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image" autofocus>
                             @error('image')
                                 <span class="invalid-feedback" role="alert">
@@ -207,6 +208,19 @@
                             @enderror
                         </div>
                     </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                          <label for="" class="form-control-label">Photo de Couverture</label>
+                          <input type="file" name="couverture" class="form-control @error('couverture') is-invalid @enderror" id="image" autofocus>
+                          @error('couverture')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                          @enderror
+                      </div>
+                  </div>
+
                     <div class="pl-lg-12">
                     <div class="text-center">
                          <button type="submit" class="btn btn-primary mt-4">Modifier mon profile  </button>

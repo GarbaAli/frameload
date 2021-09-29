@@ -20,6 +20,7 @@ class CreateProfilesTable extends Migration
             $table->string('niveau', 50)->nullable();
             $table->string('filiere', 50)->nullable();
             $table->string('image')->nullable();
+            $table->string('couverture')->nullable();
             $table->longText('bio')->nullable();
             $table->string('etablissement')->nullable();
             $table->unsignedBigInteger('user_id')->index();

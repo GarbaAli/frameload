@@ -27,6 +27,7 @@ class ProfileController extends Controller
         return view('profiles.edit', compact('user')); 
     }
 
+
     public function update(Request $request, User $user)
     {
         $this->authorize('update', $user->profile);
@@ -39,17 +40,26 @@ class ProfileController extends Controller
             'bio' => 'required|min:5',
             'etablissement' =>'required|min:3|max:200',
             'image' => 'max:3000',
-            
+            'couverture' => 'max:3000',
         ]);
 
         if(request()->hasFile('image'))
         {
-
             $destination_path = 'public/avatars';
             $image = $request->file('image');
             $image_name = $image->getClientOriginalName();
             $imagePath = $request->file('image')->storeAs($destination_path, $image_name);
             $data['image'] = $image_name;
+         
+        }
+
+        if(request()->hasFile('couverture'))
+        {
+            $destination_path = 'public/couverture';
+            $images = $request->file('couverture');
+            $image_names = $images->getClientOriginalName();
+            $imagePath = $request->file('couverture')->storeAs($destination_path, $image_names);
+            $data['couverture'] = $image_names;
          
         }
             auth()->user()->profile->update($data);

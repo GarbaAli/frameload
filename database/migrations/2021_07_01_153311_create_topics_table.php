@@ -16,7 +16,7 @@ class CreateTopicsTable extends Migration
         Schema::create('topics', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('content');
+            $table->longText('content');
             $table->unsignedBigInteger('user_id')->index();
             $table->unsignedBigInteger('souscat_forums_id')->index();
             $table->timestamps();
